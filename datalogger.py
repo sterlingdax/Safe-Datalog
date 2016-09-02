@@ -8,7 +8,4 @@ filename = raw_input("Filename: ")
 data = open(filename)
 dataReader = csv.reader(data)
 for row in data:
-	print
-
-
-
+	print data
