@@ -1,11 +1,12 @@
 # Read datalogger from safe
-
 import csv
 
-# So yeah, get filename, open that file, then print the contents
-# Not the most glamorous, but hey, it's a start!
-filename = raw_input("Filename: ")
+filename = input("Filename: ")
 data = open(filename)
 dataReader = csv.reader(data)
 for row in data:
-	print data
+	print('Row #' + str(dataReader.line_num) + ' ' + str(row))
+	
+# Keep up with row numbers, and see if there is a header in the file
+# that would show what the data is per row
+
