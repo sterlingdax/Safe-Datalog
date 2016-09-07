@@ -12,3 +12,5 @@ for row in dataReader:
 # that would show what the data is per row
 
 # change line 8 to just read data and it's not a list of lists, it's numbers, hrmmm
+# Maybe have the program kick out a certain number of entries to make it smaller and
+# or easier to graph
