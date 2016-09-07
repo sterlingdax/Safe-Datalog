@@ -5,7 +5,7 @@ import csv
 filename = input("Filename: ")
 data = open(filename)
 dataReader = csv.reader(data)
-for row in data:
+for row in dataReader:
 	print('Row #' + str(dataReader.line_num) + ' ' + str(row))
 	
 # Keep up with row numbers, and see if there is a header in the file
