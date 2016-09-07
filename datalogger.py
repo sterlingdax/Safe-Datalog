@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 # Read datalogger from safe
 import csv
 
