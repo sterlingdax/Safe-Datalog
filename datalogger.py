@@ -11,3 +11,4 @@ for row in dataReader:
 # Keep up with row numbers, and see if there is a header in the file
 # that would show what the data is per row
 
+# change line 8 to just read data and it's not a list of lists, it's numbers, hrmmm
