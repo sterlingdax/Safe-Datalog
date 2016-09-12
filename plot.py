@@ -6,7 +6,7 @@ from csv import reader
 from matplotlib import pyplot, dates
 from dateutil import parser
 
-with open('test.csv', 'r') as f:
+with open('smalllogfrom2nd.txt', 'r') as f:
     data = list(reader(f))
 temp = [i[1] for i in data]
 time = [parser.parse(i[4]) for i in data]
