@@ -1,17 +1,16 @@
-# From this page
-# https://www.raspberrypi.org/learning/astro-pi-flight-data-analysis/graphing/
-# Ask for filename, add dates, humidity, etc
+# Scans: The final frontier. These are the voyages of the missing scans
+# The five year mission? To ferret out these bastards and make them pay
+# for their insolence! Or, to point out the error of their ways, you pick
+import openpyxl
 
-from csv import reader
-from matplotlib import pyplot, dates
-from dateutil import parser
+# Open file, one for now, figure out how to open multiple
+wb = openpyxl.load_workbook('1-14-2016.xlsx')
 
-with open('smalllogfrom2nd.txt', 'r') as f:
-    data = list(reader(f))
-temp = [i[1] for i in data]
-time = [parser.parse(i[4]) for i in data]
-pyplot.title('Safe Temp vs Time')
-pyplot.xlabel('Time/hours')
-pyplot.ylabel('Temp/brrr!')
-pyplot.plot(time, temp)
-pyplot.show()
+# Open the sheet
+sheet = wb.active
+print(sheet['A2'].value)
+# Can't name this variable same as function name, rename it
+high = sheet.get_highest_column()
+# How to make a range variable that varies, maybe count over the sheet row, use that variable?
+for i in range(high):
+	print(i, sheet.cell(row=i, column=2).value)
