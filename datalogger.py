@@ -1,16 +1,25 @@
-#! /usr/bin/env python3
-# Read datalogger from safe
-import csv
+# Read datalog information from safe, which has these fields, in this order:
+# Humidity [0] - Inside safe
+# Temperature [1] - Inside Safe
+# Voltage [2] - Of LiPo Battery Backup
+# Day, Month, Year Hour, Minute, Second [3]
+# Hour, Minute, Second [4] - Before 9-19-2016
+# Currently logger records every five minutes after 9-19-2016
+# Previous data (1 week) will be at 1 minute intervals
+# This previous data will also include separate date/time lines
+# New data will have the full timestamp on one line (3)
+
+
+from matplotlib import pyplot, dates
+from csv import reader
+from dateutil import parser
 
 filename = input("Filename: ")
-data = open(filename)
-dataReader = csv.reader(data)
-for row in dataReader:
-	print('Row #' + str(dataReader.line_num) + ' ' + str(row))
-	
-# Keep up with row numbers, and see if there is a header in the file
-# that would show what the data is per row
+f = open(filename, 'r')
+data = list(reader(f))
 
-# change line 8 to just read data and it's not a list of lists, it's numbers, hrmmm
-# Maybe have the program kick out a certain number of entries to make it smaller and
-# or easier to graph
+temp = [i[1] for i in data[1::]]
+time = [parser.parse(i[3]) for i in data[1::]]
+
+pyplot.plot(time, temp)
+pyplot.show()
