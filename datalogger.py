@@ -21,5 +21,8 @@ data = list(reader(f))
 temp = [i[1] for i in data[1::]]
 time = [parser.parse(i[3]) for i in data[1::]]
 
+pyplot.title('Safe Temp over time')
+pyplot.xlabel('Time')
+pyplot.ylabel('Temperature/$^\circ$F')
 pyplot.plot(time, temp)
 pyplot.show()
