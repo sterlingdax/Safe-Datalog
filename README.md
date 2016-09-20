@@ -29,9 +29,9 @@ Temperature
 
 Voltage
 
-Day, Month, Year
+Day, Month, Year Hour, Minute, Second - Most Recent Arduino code is 5 minute interval and no comma between data and time fields.
 
-Hour, Minute, Second
+
 
 
 
